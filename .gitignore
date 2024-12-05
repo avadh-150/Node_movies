@@ -1,0 +1,3 @@
+# Ignore the all file which place at here
+node_modules/
+.env
