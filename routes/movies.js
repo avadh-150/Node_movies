@@ -105,7 +105,7 @@ catch(err){
 //delete the document...using DELETE Method ...
 router.delete('/:id', async (req,res)=>{
     try{
-
+        //extract the field from Url parameters
         const id = req.params.id;
 
         //delete
