@@ -1,8 +1,14 @@
 // import
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 
-// define the Url
-mongoUrl="mongodb://localhost:27017/demo";
+//configuration file .env
+require('dotenv').config();
+
+// define the Url local
+// mongoUrl=process.env.Urllocal;
+
+//  variable access using format of process.env.variabe_name
+mongoUrl = process.env.UrlMongoDB;
 
 //create connection
 mongoose.connect(mongoUrl);
@@ -11,20 +17,20 @@ mongoose.connect(mongoUrl);
 const db = mongoose.connection;
 
 //event listener
-db.on('connected',()=>{
+db.on('connected', () => {
     console.log("connected the database...");
 });
 
-db.on('disconnected',()=>{
+db.on('disconnected', () => {
     console.log("Disconnected from database");
 });
 
-db.on('error',(e)=>{
-console.log("Error raise during connection time.. " +e);
+db.on('error', (e) => {
+    console.log("Error raise during connection time.. " + e);
 })
 
 
-module.exports=db;
+module.exports = db;
 
 
 
